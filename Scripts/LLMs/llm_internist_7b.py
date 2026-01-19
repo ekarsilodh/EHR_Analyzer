@@ -15,16 +15,14 @@ drive.mount('/content/drive')
 # -*- coding: utf-8 -*-
 """internist7b_multitask_finetune.py
 
-Adapted from your original script to fine-tune Internist-7B (internistai/base-7b-v0.2)
-for multitask clinical prediction (mortality + LOS class) using the same architecture
-(attention pooling + task heads), but with:
+Fine-tune Internist-7B (internistai/base-7b-v0.2) for multitask clinical prediction 
+(mortality + LOS class) using the same architecture (attention pooling + task heads), but with:
   1) A natural-language header as requested.
   2) Safer backbone kwargs handling (decoder-only models like Mistral/Internist don't accept token_type_ids).
   3) Optional QLoRA (4-bit) + LoRA adapters to make 7B fine-tuning feasible on a single GPU.
 
 Notes:
-- Internist.ai base-7b-v0.2 is Mistral-7B-v0.1 continued-pretraining (context length 4096). [1](https://huggingface.co/internistai/base-7b-v0.2)
-- If you have enough VRAM for full fine-tuning, you can turn off QLoRA/LoRA.
+- Internist.ai base-7b-v0.2 is Mistral-7B-v0.1 continued-pretraining (context length 4096).
 
 """
 
